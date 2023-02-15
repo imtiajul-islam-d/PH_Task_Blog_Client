@@ -76,7 +76,7 @@ const Home = () => {
       </Space>
       {/* content */}
       <section>
-        <section className="pb-3 dark:bg-gray-800 dark:text-gray-100">
+        <section className="pb-3">
           <div className="container py-6 mx-auto space-y-8">
             <div className="space-y-2 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold">WORLD IS YOURS</h2>
