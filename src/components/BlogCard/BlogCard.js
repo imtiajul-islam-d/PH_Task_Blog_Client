@@ -10,7 +10,7 @@ const BlogCard = ({ blog }) => {
   const activeClass = "border-yellow-500 text-yellow-500";
   return (
     <>
-      <article className="flex flex-col dark:bg-gray-900 shadow-md cursor-pointer">
+      <article className="flex flex-col dark:bg-gray-900 shadow-md hover:shadow-sm cursor-pointer">
         <Link
           rel="noopener noreferrer"
           to="/"

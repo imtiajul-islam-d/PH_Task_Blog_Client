@@ -6,7 +6,7 @@ import Navigation from "../../pages/Navigation/Navigation";
 const User = () => {
   return (
     <>
-      <section className="bg-gray-50">
+      <section className="shadow-sm">
         <Navigation></Navigation>
       </section>
       <section>

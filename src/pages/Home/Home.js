@@ -81,7 +81,7 @@ const Home = () => {
             <div className="space-y-2 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold">WORLD IS YOURS</h2>
             </div>
-            <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
               {content}
             </div>
           </div>
