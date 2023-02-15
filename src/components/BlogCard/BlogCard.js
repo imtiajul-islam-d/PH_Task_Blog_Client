@@ -1,8 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleTag } from "../../redux/actions/filterAction";
 
 const BlogCard = ({ blog }) => {
+  const dispatch = useDispatch();
+  const filter = useSelector(state => state.filter.tags)
   const showDetails = blog?.details.substring(0, 100);
+  const activeClass = "border-yellow-500 text-yellow-500";
   return (
     <>
       <article className="flex flex-col dark:bg-gray-900 shadow-md cursor-pointer">
@@ -37,6 +42,19 @@ const BlogCard = ({ blog }) => {
             <button className="px-3 py-2 border border-gray-100 hover:border-yellow-500">
               Details
             </button>
+            <div className="flex">
+              {blog?.tags?.map((tag, idx) => {
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => dispatch(toggleTag(tag))}
+                    className={`px-3 py-2 border ${filter.includes(tag)? activeClass: "border-white"} hover:border-yellow-500`}
+                  >
+                    #{tag}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </article>

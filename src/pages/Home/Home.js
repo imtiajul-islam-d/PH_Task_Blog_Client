@@ -8,11 +8,52 @@ import loadBlogData from "../../redux/thunk/blogs/fetchBlogs";
 const Home = () => {
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs);
-  const { FTL, LTF } = useSelector((state) => state.filter);
+  const { FTL, LTF, tags } = useSelector((state) => state.filter);
   useEffect(() => {
     dispatch(loadBlogData());
   }, [dispatch]);
-  console.log(FTL, LTF);
+
+  let content;
+  if (!tags.length) {
+    if (LTF) {
+      content = blogs
+        ?.sort(function (a, b) {
+          return b.time - a.time;
+        })
+        .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
+    }
+    if (FTL) {
+      content = blogs
+        ?.sort(function (a, b) {
+          return a.time - b.time;
+        })
+        .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
+    }
+  } else {
+    // find similarity between two arrays
+    const arr = tags.map((tag) =>
+      blogs.filter((blog) => blog.tags.includes(tag))
+    );
+    // convert multidimensional arrays into single array
+    const result = arr.reduce((r, a) => r.concat(a), []);
+    // remove common items
+    const uniqueBlog = [...new Set(result)];
+
+    if (LTF) {
+      content = uniqueBlog
+        ?.sort(function (a, b) {
+          return b.time - a.time;
+        })
+        .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
+    }
+    if (FTL) {
+      content = uniqueBlog
+        ?.sort(function (a, b) {
+          return a.time - b.time;
+        })
+        .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
+    }
+  }
   return (
     <section className="container max-w-7xl mx-auto px-5 lg:px-3 min-h-[85vh]">
       <Space wrap className="my-3 mt-5">
@@ -40,28 +81,9 @@ const Home = () => {
             <div className="space-y-2 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold">WORLD IS YOURS</h2>
             </div>
-            {LTF && (
-              <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-                {blogs
-                  ?.sort(function (a, b) {
-                    return b.time - a.time;
-                  })
-                  .map((blog) => (
-                    <BlogCard key={blog._id} blog={blog}></BlogCard>
-                  ))}
-              </div>
-            )}
-            {FTL && (
-              <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-                {blogs
-                  ?.sort(function (a, b) {
-                    return a.time - b.time;
-                  })
-                  .map((blog) => (
-                    <BlogCard key={blog._id} blog={blog}></BlogCard>
-                  ))}
-              </div>
-            )}
+            <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+              {content}
+            </div>
           </div>
         </section>
       </section>

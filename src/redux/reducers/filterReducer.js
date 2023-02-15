@@ -1,6 +1,11 @@
-import { SORT_BY_FIRST, SORT_BY_LATEST } from "../actionTypes/actionTypes";
+import {
+  SORT_BY_FIRST,
+  SORT_BY_LATEST,
+  TOGGLE_TAG,
+} from "../actionTypes/actionTypes";
 
 const initialState = {
+  tags: [],
   LTF: true,
   FTL: false,
 };
@@ -18,6 +23,18 @@ const filterReducer = (state = initialState, action) => {
         FTL: !state.FTL,
         LTF: !state.LTF,
       };
+    case TOGGLE_TAG:
+      if (!state.tags.includes(action.payload)) {
+        return {
+          ...state,
+          tags: [...state.tags, action.payload],
+        };
+      } else {
+        return {
+          ...state,
+          tags: state.tags.filter((tag) => tag !== action.payload),
+        };
+      }
     default:
       return state;
   }
