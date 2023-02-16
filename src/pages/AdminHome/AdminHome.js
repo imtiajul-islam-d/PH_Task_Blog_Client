@@ -6,7 +6,7 @@ import AdminNav from "./AdminNav/AdminNav";
 const AdminHome = () => {
   return (
     <>
-        this is admin home
+      <Outlet></Outlet>
     </>
   );
 };
