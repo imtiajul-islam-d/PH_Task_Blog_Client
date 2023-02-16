@@ -9,7 +9,7 @@ const Admin = () => {
       <section>
         <AdminNav></AdminNav>
       </section>
-      <section>
+      <section className="min-h-[85vh]">
         <Outlet></Outlet>
       </section>
       <Footer></Footer>

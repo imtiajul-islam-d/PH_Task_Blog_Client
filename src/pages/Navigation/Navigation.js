@@ -41,31 +41,13 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="flex">
-              <a
+              <Link
                 rel="noopener noreferrer"
-                href="#"
+                to="/admin"
                 className="flex items-center px-4 dark:border-transparent"
               >
-                Link
-              </a>
-            </li>
-            <li className="flex">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="flex items-center px-4 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
-              >
-                Link
-              </a>
-            </li>
-            <li className="flex">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="flex items-center px-4 dark:border-transparent"
-              >
-                Link
-              </a>
+                Admin
+              </Link>
             </li>
           </ul>
           <button
