@@ -54,6 +54,7 @@ const Home = () => {
         .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
     }
   }
+
   return (
     <section className="container max-w-7xl mx-auto px-5 lg:px-3 min-h-[85vh]">
       <Space wrap className="my-3 mt-5">

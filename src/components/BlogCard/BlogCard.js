@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToHistory } from "../../redux/actions/blogAction";
 import { toggleTag } from "../../redux/actions/filterAction";
 
 const BlogCard = ({ blog }) => {
@@ -16,11 +17,7 @@ const BlogCard = ({ blog }) => {
           to="/"
           aria-label="Te nulla oportere reprimique his dolorum"
         >
-          <img
-            alt=""
-            className="object-cover w-full h-52"
-            src={blog?.image}
-          />
+          <img alt="" className="object-cover w-full h-52" src={blog?.image} />
         </Link>
         <div className="flex flex-col flex-1 p-6">
           <Link
@@ -40,6 +37,7 @@ const BlogCard = ({ blog }) => {
           </h3>
           <div className="flex flex-wrap justify-between mb-2 pt-3 text-xs">
             <Link
+              onClick={() => dispatch(addToHistory(blog))}
               to={`/details/${blog?._id}`}
               className="px-3 py-2 border border-gray-100 hover:border-yellow-500"
             >

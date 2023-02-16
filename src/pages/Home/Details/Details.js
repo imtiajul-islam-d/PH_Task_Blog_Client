@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import loadBlogData from "../../../redux/thunk/blogs/fetchBlogs";
 
 const Details = () => {
@@ -23,7 +23,7 @@ const Details = () => {
             alt=""
             className="w-full h-60 sm:h-96"
           />
-          <div className="p-6 pb-12 m-4 mx-auto md:-mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-yellow-100">
+          <div className="p-6 pb-12 m-4 mx-auto md:-mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-50">
             <div className="space-y-2 inline-block text-2xl font-semibold sm:text-3xl">
               {detailsBlog?.title}
             </div>
@@ -31,6 +31,14 @@ const Details = () => {
               <p>{detailsBlog?.details}</p>
             </div>
           </div>
+        </div>
+        <div className="flex items-center justify-center">
+          <Link
+            className="bg-yellow-500 text-black hover:text-yellow-500 hover:bg-black px-3 py-2"
+            to="/"
+          >
+            Home
+          </Link>
         </div>
       </div>
     </section>

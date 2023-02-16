@@ -1,8 +1,15 @@
-import { GET_CONTENT } from "../actionTypes/actionTypes";
+import { ADD_TO_HISTORY, GET_CONTENT } from "../actionTypes/actionTypes";
 
-export const getAllContent = (product) => {
+export const getAllContent = (blog) => {
   return {
     type: GET_CONTENT,
-    payload: product,
+    payload: blog,
+  };
+};
+
+export const addToHistory = (blog) => {
+  return {
+    type: ADD_TO_HISTORY,
+    payload: blog,
   };
 };
