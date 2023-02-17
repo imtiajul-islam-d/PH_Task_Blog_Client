@@ -1,4 +1,5 @@
 import {
+  DELETE_CONTENT,
   SORT_BY_FIRST,
   SORT_BY_LATEST,
   TOGGLE_TAG,
@@ -20,3 +21,9 @@ export const toggleTag = (tag) => {
     payload: tag,
   };
 };
+export const deleteContent = (id) => {
+  return {
+    type: DELETE_CONTENT,
+    payload: id
+  }
+}
