@@ -6,7 +6,7 @@ const deleteBlog = (id) => {
     return;
   }
   return async (dispatch, getState) => {
-    const res = await fetch(`http://localhost:5000/deleteBlog/${id}`, {
+    const res = await fetch(`https://ph-task-blog-server.vercel.app/deleteBlog/${id}`, {
       method: "DELETE",
     });
     const data = await res.json();

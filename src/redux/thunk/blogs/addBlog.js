@@ -2,7 +2,7 @@ import { addContent } from "../../actions/blogAction";
 
 const addBlogData = (blog, navigate) => {
   return async (dispatch, getState) => {
-    const res = await fetch("http://localhost:5000/postBlog", {
+    const res = await fetch("https://ph-task-blog-server.vercel.app/postBlog", {
       method: "POST",
       body: JSON.stringify(blog),
       headers: {
