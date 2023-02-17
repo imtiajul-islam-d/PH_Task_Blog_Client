@@ -66,7 +66,7 @@ const blogReducer = (state = initialState, action) => {
             ),
             {
               ...historyAvailable,
-              blog: action.payload,
+              blog: action.payload.blog,
             },
           ],
         };

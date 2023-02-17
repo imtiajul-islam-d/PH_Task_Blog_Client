@@ -15,7 +15,7 @@ const updateBlogData = (id, blog, navigate) => {
         dispatch(
           updateContent({
             _id: id,
-            ...blog,
+            blog,
           })
         );
         navigate("/admin")

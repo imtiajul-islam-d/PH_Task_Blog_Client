@@ -1,7 +1,15 @@
-import React from "react";
+import { Drawer } from "antd";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const AdminNav = () => {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <header className="p-4 shadow-sm">
@@ -33,7 +41,7 @@ const AdminNav = () => {
               </Link>
             </li>
           </ul>
-          <button className="flex justify-end p-4 md:hidden">
+          <button onClick={() => showDrawer()} className="flex justify-end p-4 md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -50,6 +58,18 @@ const AdminNav = () => {
             </svg>
           </button>
         </div>
+        <Drawer
+          width={"80%"}
+          title=""
+          placement="right"
+          onClose={onClose}
+          open={open}
+        >
+          <div className="flex flex-col space-y-2">
+            <Link to="/">Website</Link>
+            <Link to="/history">History</Link>
+          </div>
+        </Drawer>
       </header>
     </>
   );

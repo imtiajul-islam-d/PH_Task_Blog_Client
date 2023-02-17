@@ -74,12 +74,15 @@ const Navigation = () => {
       {/* drawer start */}
       <Drawer
         width={"80%"}
-        title="Basic Drawer"
+        title=""
         placement="right"
         onClose={onClose}
         open={open}
       >
-        <Link to="/admin">Admin</Link>
+        <div className="flex flex-col space-y-2">
+          <Link to="/admin">Admin</Link>
+          <Link to="/history">History</Link>
+        </div>
       </Drawer>
     </>
   );

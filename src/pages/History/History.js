@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import BlogCard from "../../components/BlogCard/BlogCard";
 
 const History = () => {
-  const {tags} = useSelector((state) => state.filter);
+  const { tags } = useSelector((state) => state.filter);
   const history = useSelector((state) => state.blogs.history);
   let content;
+  console.log(history);
   if (tags.length) {
     // find similarity between two arrays
     const arr = tags.map((tag) =>
@@ -28,7 +29,7 @@ const History = () => {
       })
       .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
   }
-
+  console.log(content.length);
   return (
     <>
       <section>
@@ -39,7 +40,10 @@ const History = () => {
                 LATEST READING BLOGS
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="min-h-[80vh] grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {
+                content?.length === 0 && <p className="px-2">Opps!! You did not read any blog yet!!</p>
+              }
               {content}
             </div>
           </div>

@@ -49,7 +49,7 @@ const BlogCard = ({ blog }) => {
               Details
             </Link>
           </div>
-          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-auto">
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:mx-auto">
             {blog?.blog?.tags?.map((tag, idx) => {
               return (
                 <button
