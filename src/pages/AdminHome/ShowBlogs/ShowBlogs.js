@@ -30,7 +30,7 @@ const ShowBlogs = () => {
           </td>
           <td className="p-3">
             <Link
-              to="/admin/update"
+              to={`/admin/update/${blog?._id}`}
               className="bg-yellow-500 border border-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-2 py-2 hover:border hover:border-yellow-500"
             >
               Update
