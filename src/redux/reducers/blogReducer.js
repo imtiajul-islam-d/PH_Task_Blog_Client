@@ -1,4 +1,5 @@
 import {
+  ADD_CONTENT,
   ADD_TO_HISTORY,
   DELETE_CONTENT,
   GET_CONTENT,
@@ -10,9 +11,7 @@ const initialState = {
 };
 
 const blogReducer = (state = initialState, action) => {
-  // const historyState = state.history.find(
-  //   (blog) => blog._id === action.payload._id
-  // );
+
   switch (action.type) {
     case GET_CONTENT:
       return {
@@ -28,6 +27,11 @@ const blogReducer = (state = initialState, action) => {
         ...state,
         history: [...filteredHistory, action.payload],
       };
+    case ADD_CONTENT: 
+      return {
+        ...state,
+        blogs: [...state.blogs, action.payload]
+      }
     case DELETE_CONTENT:
       return {
         ...state,
