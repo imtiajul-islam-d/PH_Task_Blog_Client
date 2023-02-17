@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import BlogCard from "../../components/BlogCard/BlogCard";
 
 const History = () => {
-  const { tags } = useSelector((state) => state.filter);
+  const {tags} = useSelector((state) => state.filter);
   const history = useSelector((state) => state.blogs.history);
   let content;
   if (tags.length) {
     // find similarity between two arrays
     const arr = tags.map((tag) =>
-      history.filter((blog) => blog.tags.includes(tag))
+      history.filter((blog) => blog.blog.tags.includes(tag))
     );
     // convert multidimensional arrays into single array
     const result = arr.reduce((r, a) => r.concat(a), []);

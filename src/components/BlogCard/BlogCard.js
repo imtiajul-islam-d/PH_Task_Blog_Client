@@ -7,8 +7,9 @@ import { toggleTag } from "../../redux/actions/filterAction";
 const BlogCard = ({ blog }) => {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter.tags);
-  const showDetails = blog?.details.substring(0, 100);
+  const showDetails = blog?.blog?.details.substring(0, 100);
   const activeClass = "border-yellow-500 text-yellow-500";
+
   return (
     <>
       <article className="flex flex-col shadow-md hover:shadow-sm cursor-pointer">
@@ -17,7 +18,11 @@ const BlogCard = ({ blog }) => {
           to="/"
           aria-label="Te nulla oportere reprimique his dolorum"
         >
-          <img alt="" className="object-cover w-full h-52" src={blog?.image} />
+          <img
+            alt=""
+            className="object-cover w-full h-52"
+            src={blog?.blog?.image}
+          />
         </Link>
         <div className="flex flex-col flex-1 p-6">
           <Link
@@ -30,10 +35,10 @@ const BlogCard = ({ blog }) => {
             to="/"
             className="text-xs tracking-wider uppercase hover:underline"
           >
-            {blog?.title}
+            {blog?.blog?.title}
           </Link>
           <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
-            {blog?.details ? showDetails + " ..." : ""}
+            {blog?.blog?.details ? showDetails + " ..." : ""}
           </h3>
           <div className="flex flex-wrap justify-between mb-2 pt-3 text-xs">
             <Link
@@ -45,7 +50,7 @@ const BlogCard = ({ blog }) => {
             </Link>
           </div>
           <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-auto">
-            {blog?.tags?.map((tag, idx) => {
+            {blog?.blog?.tags?.map((tag, idx) => {
               return (
                 <button
                   key={idx}

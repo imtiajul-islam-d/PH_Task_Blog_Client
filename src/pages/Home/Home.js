@@ -18,21 +18,21 @@ const Home = () => {
     if (LTF) {
       content = blogs
         ?.sort(function (a, b) {
-          return b.time - a.time;
+          return b.blog.time - a.blog.time;
         })
         .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
     }
     if (FTL) {
       content = blogs
         ?.sort(function (a, b) {
-          return a.time - b.time;
+          return a.blog.time - b.blog.time;
         })
         .map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
     }
   } else {
     // find similarity between two arrays
     const arr = tags.map((tag) =>
-      blogs.filter((blog) => blog.tags.includes(tag))
+      blogs.filter((blog) => blog.blog.tags.includes(tag))
     );
     // convert multidimensional arrays into single array
     const result = arr.reduce((r, a) => r.concat(a), []);

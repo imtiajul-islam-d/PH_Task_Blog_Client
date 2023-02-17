@@ -9,10 +9,11 @@ const ShowBlogs = () => {
     dispatch(loadBlogData());
   }, [dispatch]);
   const blogs = useSelector((state) => state.blogs.blogs);
+  console.log(blogs);
   let content;
   content = blogs
     ?.sort(function (a, b) {
-      return b.time - a.time;
+      return b.blog.time - a.blog.time;
     })
     .map((blog, idx) => {
       return (
@@ -21,10 +22,10 @@ const ShowBlogs = () => {
           className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900"
         >
           <td className="p-3">
-            <p>{blog?.title}</p>
+            <p>{blog?.blog?.title}</p>
           </td>
           <td className="p-3">
-            <img alt="" className="w-14 h-14 " src={blog?.image} />
+            <img alt="" className="w-14 h-14 " src={blog?.blog?.image} />
           </td>
           <td className="p-3">
             <Link to="/admin/update" className="bg-yellow-500 border border-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-2 py-2 hover:border hover:border-yellow-500">

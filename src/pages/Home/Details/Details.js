@@ -19,7 +19,7 @@ const Details = () => {
       <div className="p-5 mx-auto sm:p-10 md:p-16">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
-            src={detailsBlog?.image}
+            src={detailsBlog?.blog?.image}
             alt=""
             className="w-full h-60 sm:h-96"
           />
@@ -28,7 +28,7 @@ const Details = () => {
               {detailsBlog?.title}
             </div>
             <div className="justify-center">
-              <p>{detailsBlog?.details}</p>
+              <p>{detailsBlog?.blog?.details}</p>
             </div>
           </div>
         </div>
